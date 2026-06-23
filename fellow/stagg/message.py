@@ -38,11 +38,11 @@ class Timer (Message):
     def parse(self, payload: bytearray, state: State):
         state.timer = int(payload[0])
 
-class Mode (Message):
+class Heated (Message):
     LENGTH: int = 2
 
     def parse(self, payload: bytearray, state: State):
-        state.mode = Switch(payload[0])
+        state.heated = Switch(payload[0])
 
 class Docked (Message):
     LENGTH: int = 2
@@ -64,7 +64,7 @@ MESSAGES: dict[int, Message] = {
     0x03: Current(),
     0x04: Timer(),
     0x05: Unknown(4),
-    0x06: Mode(),
+    0x06: Heated(),
     0x07: Unknown(3),
     0x08: Docked()
 }

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from time import time
 from asyncio import Queue, Event, create_task
 
 from fellow.stagg.state      import State
@@ -17,7 +18,7 @@ class Kettle:
     connection: Connection
     parser:     Parser
     queue:      Queue
-    event:      Event   
+    event:      Event
 
     def __init__(self):
         self.state      = State()
@@ -48,4 +49,4 @@ class Kettle:
         while True:
             data = await self.queue.get()
             self.parser.parse(data)
-            print(self.state)
+            # print(self.state)
