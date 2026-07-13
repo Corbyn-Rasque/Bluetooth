@@ -1,8 +1,4 @@
 #! python3
-
-from __future__ import annotations
-
-from time import time
 from asyncio import Queue, Event, create_task
 
 from fellow.stagg.state      import State
